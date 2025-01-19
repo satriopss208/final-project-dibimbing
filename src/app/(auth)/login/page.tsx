@@ -1,6 +1,6 @@
 import Image from "next/image";
 import logo from "@/public/assets/logo-name.webp";
-import loginBackdrop from "@/public/assets/_ (1).jpeg";
+import loginBackdrop from "@/public/assets/login-backdrop.webp";
 import { LoginForm } from "@/sections/login-form";
 
 export default function Login() {

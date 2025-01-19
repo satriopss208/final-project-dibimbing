@@ -1,7 +1,7 @@
 import Footer from '@/sections/Footer'
 import Header from '@/sections/TopNavbar'
 import React from 'react'
-import backdrop from '@/public/assets/image-backdrop-2.jpg';
+import backdrop from '@/public/assets/image-backdrop-2.webp';
 import Hero from '@/sections/Hero';
 
 export default function Destination() {

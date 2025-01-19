@@ -1,6 +1,6 @@
 import Footer from '@/sections/Footer'
 import Header from '@/sections/TopNavbar'
-import backdrop from '@/public/assets/image-backdrop-3.jpeg';
+import backdrop from '@/public/assets/image-backdrop-3.webp';
 import Hero from '@/sections/Hero';
 
 export default function Faqs() {

@@ -1,6 +1,6 @@
 import { RegisterForm } from '@/sections/Register-form';
 import Image from 'next/image';
-import loginBackdrop from "@/public/assets/_ (1).png";
+import registerBackdrop from "@/public/assets/register-backdrop.webp";
 import logo from '@/public/assets/logo-name.webp';
 
 export default function Register() {
@@ -8,7 +8,7 @@ export default function Register() {
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="relative hidden bg-muted lg:block">
         <Image
-          src={loginBackdrop}
+          src={registerBackdrop}
           alt="Login Backdrop"
           className="absolute inset-0 h-full w-full object-cover"
         />

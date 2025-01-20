@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Head from 'next/head';
-import Header from '@/sections/TopNavbar';
-import Footer from '@/sections/Footer';
 
 const merriweather = localFont({
   src: "./fonts/Merriweather-Regular.woff",
@@ -29,13 +27,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <link rel="icon" href="/favicon.ico"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="../public/assets/favicon.ico" />
       </Head>
       <body
         className={` ${poppinSans.variable} antialiased`}
       >
         <main className="grow">
-        {children}
+          {children}
         </main>
       </body>
     </html>

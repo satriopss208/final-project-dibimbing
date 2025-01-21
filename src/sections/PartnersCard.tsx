@@ -72,7 +72,7 @@ const PartnersCard = ({
 
 export function MarqueePartnersCard() {
   return (
-    <div className="relative flex h-[500px] w-full flex-col justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+    <section className="relative flex h-[500px] max-w-6xl flex-col items-center mx-auto justify-center overflow-hidden bg-background">
       <div className="flex justify-center h-20">
         <h1 className="font-bold text-3xl">OUR PARTNERS</h1>
       </div>
@@ -83,6 +83,6 @@ export function MarqueePartnersCard() {
       </Marquee>
       <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
       <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
-    </div>
+    </section>
   );
 }

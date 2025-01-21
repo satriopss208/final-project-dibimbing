@@ -10,10 +10,10 @@ export interface Destination {
     title: string;
     description: string;
     imageUrls: Array<string>;
-    price: number | null;
-    price_discount: number | null;
-    rating: number | null;
-    total_reviews: number | null;
+    price: number;
+    price_discount: number;
+    rating: number;
+    total_reviews: number;
     facilities: string;
     address: string;
     province: string;

@@ -18,14 +18,14 @@ export default function TopDestinationSection() {
     useEffect(() => {
 
         setTimeout(() => {
-            setIsloading(false);
             if (data) {
                 const sorted = [...data]
-                    .sort((a, b) => b.total_reviews - a.total_reviews)
-                    .slice(0, topLimit);
-
+                .sort((a, b) => b.total_reviews - a.total_reviews)
+                .slice(0, topLimit);
+                
                 setSortedData(sorted);
             }
+            setIsloading(false);
         }, 2000);
     }, [data]);
 
@@ -71,27 +71,39 @@ export default function TopDestinationSection() {
                 {isLoading ? (
                     <div className="grid grid-cols-3 gap-5 w-full">
                         <div className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
-                            <Skeleton className="w-[350px] h-[220px] rounded-xl" />
+                            <div className="w-full h-[180px] overflow-hidden rounded-lg">
+                            <Skeleton className="w-[350px] h-[180px] rounded-xl" />
+                            </div>
                             <Skeleton className="w-[200px] h-[32px]" />
                         </div>
                         <div className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
-                            <Skeleton className="w-[350px] h-[220px] rounded-xl" />
+                            <div className="w-full h-[180px] overflow-hidden rounded-lg">
+                            <Skeleton className="w-[350px] h-[180px] rounded-xl" />
+                            </div>
                             <Skeleton className="w-[200px] h-[32px]" />
                         </div>
                         <div className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
-                            <Skeleton className="w-[350px] h-[220px] rounded-xl" />
+                            <div className="w-full h-[180px] overflow-hidden rounded-lg">
+                            <Skeleton className="w-[350px] h-[180px] rounded-xl" />
+                            </div>
                             <Skeleton className="w-[200px] h-[32px]" />
                         </div>
                         <div className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
-                            <Skeleton className="w-[350px] h-[220px] rounded-xl" />
+                            <div className="w-full h-[180px] overflow-hidden rounded-lg">
+                            <Skeleton className="w-[350px] h-[180px] rounded-xl" />
+                            </div>
                             <Skeleton className="w-[200px] h-[32px]" />
                         </div>
                         <div className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
-                            <Skeleton className="w-[350px] h-[220px] rounded-xl" />
+                            <div className="w-full h-[180px] overflow-hidden rounded-lg">
+                            <Skeleton className="w-[350px] h-[180px] rounded-xl" />
+                            </div>
                             <Skeleton className="w-[200px] h-[32px]" />
                         </div>
                         <div className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
-                            <Skeleton className="w-[350px] h-[220px] rounded-xl" />
+                            <div className="w-full h-[180px] overflow-hidden rounded-lg">
+                            <Skeleton className="w-[350px] h-[180px] rounded-xl" />
+                            </div>
                             <Skeleton className="w-[200px] h-[32px]" />
                         </div>
                     </div>
@@ -100,15 +112,16 @@ export default function TopDestinationSection() {
                         {sortedData.map((item: Destination) => {
                             return (
                                 <div className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
-                                    <ImageFallback
-                                        src={item.imageUrls[0]}
-                                        alt="Destination photo"
-                                        fallbackSrc={imageDefault}
-                                        width={350}
-                                        height={120}
-                                        className="object-cover object-center rounded-lg"
-                                    />
-
+                                    <div className="w-full h-[180px] overflow-hidden rounded-lg">
+                                        <ImageFallback
+                                            src={item.imageUrls[0]}
+                                            alt="Destination photo"
+                                            fallbackSrc={imageDefault}
+                                            width={350}
+                                            height={180}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
                                     <Button key={item.id}
                                         className="bg-background text-foreground hover:bg-background text-xl"
                                         onClick={() => handleRedirect(`/destination/${item.id}`)}>

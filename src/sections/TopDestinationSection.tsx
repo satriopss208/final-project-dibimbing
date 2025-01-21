@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import imageDefault from "@/public/assets/fallbackImage.webp"
 import ImageFallback from "@/components/imageFallback"
+import Link from "next/link";
 
 export default function TopDestinationSection() {
 
@@ -55,15 +56,17 @@ export default function TopDestinationSection() {
                         <h1 className="text-3xl font-bold">Plan your best trip ever</h1>
                         <p className="text-md font-medium text-accent-foreground">Making the Most of Your Travel Experience</p>
                     </div>
-                    <Button variant="outline"
-                        className="border-accent-foreground 
+                    <Link href='/destination'>
+                        <Button variant="outline"
+                            className="border-accent-foreground 
                                    font-semibold 
                                    text-accent-foreground
                                    hover:text-[#1D5B3B]
                                    hover:border-[#1D5B3B]
                                    ">
-                        View All Destination
-                    </Button>
+                            View All Destination
+                        </Button>
+                    </Link>
                 </div>
                 {isLoading ? (
                     <div className="grid grid-cols-3 gap-5 w-full">
@@ -100,7 +103,7 @@ export default function TopDestinationSection() {
                                     <ImageFallback
                                         src={item.imageUrls[0]}
                                         alt="Destination photo"
-                                        fallbackSrc={imageDefault} 
+                                        fallbackSrc={imageDefault}
                                         width={350}
                                         height={120}
                                         className="object-cover object-center rounded-lg"

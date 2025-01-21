@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Destination } from "@/hooks/destinationInterface";
 import usetopDestination from "@/hooks/useTopDestination"
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import imageDefault from "@/public/assets/fallbackImage.webp"
 import ImageFallback from "@/components/imageFallback"

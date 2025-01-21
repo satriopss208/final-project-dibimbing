@@ -44,7 +44,7 @@ export default function TopNavbar() {
                         <li className='transition-colors 
                                        hover:text-primary 
                                        '>
-                            <a href='#destination'>Destination</a>
+                            <a href='/destination'>Destination</a>
                         </li>
                         <li className='transition-colors hover:text-primary'>
                             <a href='#promo'>Promo</a>

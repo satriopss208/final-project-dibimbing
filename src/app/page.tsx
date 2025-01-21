@@ -4,6 +4,7 @@ import TopNavbar from "../sections/TopNavbar";
 import Hero from "../sections/Hero";
 import imageBg from '@/public/assets/image-backdrop-1.webp';
 import { MarqueePartnersCard } from "@/sections/PartnersCard";
+import TopDestinationSection from "@/sections/TopDestinationSection";
 
 
 export default function Home() {
@@ -14,6 +15,8 @@ export default function Home() {
       <Hero backdrop={imageBg} title="Your Gateway to the World’s Wonders"/>
       
       <MarqueePartnersCard/>
+
+      <TopDestinationSection/>
 
       <Footer/>
     </>

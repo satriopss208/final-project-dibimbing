@@ -3,6 +3,7 @@ import Footer from "../sections/Footer";
 import TopNavbar from "../sections/TopNavbar";
 import Hero from "../sections/Hero";
 import imageBg from '@/public/assets/image-backdrop-1.webp';
+import { MarqueePartnersCard } from "@/sections/PartnersCard";
 
 
 export default function Home() {
@@ -12,7 +13,7 @@ export default function Home() {
 
       <Hero backdrop={imageBg} title="Your Gateway to the World’s Wonders"/>
       
-      <div className='p-[72px]'>Home</div>
+      <MarqueePartnersCard/>
 
       <Footer/>
     </>

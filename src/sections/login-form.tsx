@@ -2,7 +2,6 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Checkbox } from "@/components/ui/checkbox"
 import Link from "next/link"
 
 export function LoginForm({
@@ -27,23 +26,6 @@ export function LoginForm({
             <Label htmlFor="password">Password</Label>
           </div>
           <Input id="password" type="password" required />
-          <div className="flex items-center justify-between w-full">
-            <div className="flex items-center justify-start gap-2">
-            <Checkbox id="terms" />
-            <label
-              htmlFor="remember"
-              className="text-xs font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              Remember me
-            </label>
-            </div>
-            <a
-              href=""
-              className="text-xs text-primary underline-offset-4 hover:underline hover:font-bold"
-            >
-              Forgot password?
-            </a>
-          </div>
         </div>
         <Button type="submit" className="w-full">
           Login

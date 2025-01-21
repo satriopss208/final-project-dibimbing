@@ -20,7 +20,7 @@ export function RegisterForm({
       <div className="grid gap-6">
         <div className="grid gap-2">
           <Label htmlFor="username">Username</Label>
-          <Input id="username" type="text" placeholder="m@example.com" required />
+          <Input id="username" type="text" placeholder="example" required />
         </div>
         <div className="grid gap-2">
           <Label htmlFor="email">Email</Label>

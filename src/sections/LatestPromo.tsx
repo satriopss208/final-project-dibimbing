@@ -15,11 +15,12 @@ export default function LatestPromo() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    if (data[currentIndex]) {
-      const timeout = setTimeout(() => setIsLoading(false), 2000);
+    if (data && data[currentIndex]) {
+      setIsLoading(true);
+      const timeout = setTimeout(() => setIsLoading(false), 100);
       return () => clearTimeout(timeout);
     }
-  }, [data[currentIndex]]);
+  }, [data, currentIndex]);
 
   const handleNext = () => {
     if (data && currentIndex < data.length - 1) {
@@ -36,7 +37,6 @@ export default function LatestPromo() {
   return (
     <section className="mb-20">
       <div className="flex flex-col items-center justify-between container max-w-6xl gap-10 mb-10">
-        {/* Header Section */}
         <div className="flex items-center justify-between gap-5 w-full">
           <div className="flex flex-col items-start justify-between">
             <h1 className="text-3xl font-bold">Special sales for better experience</h1>

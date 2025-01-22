@@ -10,6 +10,10 @@ const nextConfig = {
           protocol: 'https',
           hostname: 's-light.tiket.photos',
         },
+        {
+          protocol: 'https',
+          hostname: 'www.ancol.com',
+        },
       ],
     },
   };

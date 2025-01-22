@@ -44,19 +44,19 @@ export default function LatestBanner() {
         <div className="flex flex-col items-center gap-3 rounded-xl px-20">
           {isLoading ? (
             <div className="flex flex-col items-center justify-between w-full h-full rounded-xl p-5">
-                <Skeleton className="w-[800px] h-[300px] rounded-lg" />            
+                <Skeleton className="w-[888px] h-[360px] rounded-lg" />            
             </div>
           ) : data && data.length > 0 ? (
             <Link href={`/promo/${data[currentIndex].id}`}>
-              <div className="flex flex-col items-center justify-between w-full h-[400px] rounded-xl p-5">
-                <div className="w-full h-[400px] overflow-hidden rounded-lg">
+              <div className="flex flex-col items-center justify-between w-full h-[400px] p-5">
+                <div className="w-full h-[400px] overflow-hidden rounded-lg drop-shadow-sm">
                   <ImageFallback
                     src={data[currentIndex].imageUrl || imageDefault}
                     alt="Banner Photo"
                     fallbackSrc={imageDefault}
                     width={600}
                     height={400}
-                    className="object-cover w-full h-full"
+                    className="object-cover w-full h-full rounded-xl"
                   />
                 </div>
               </div>

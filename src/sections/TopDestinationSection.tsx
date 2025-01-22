@@ -1,3 +1,4 @@
+'use client'
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Destination } from "@/hooks/destinationInterface";
@@ -12,19 +13,17 @@ export default function TopDestinationSection() {
     const { data, handleRedirect } = usetopDestination();
     const [sortedData, setSortedData] = useState<Destination[]>([]);
     const [isLoading, setIsloading] = useState(true);
-    const [imageError, setImageError] = useState(false);
     const topLimit = 6;
     useEffect(() => {
 
         setTimeout(() => {
             if (data) {
                 const sorted = [...data]
-                .sort((a, b) => b.total_reviews - a.total_reviews)
-                .slice(0, topLimit);
-                
+                    .sort((a, b) => b.total_reviews - a.total_reviews)
+                    .slice(0, topLimit);
                 setSortedData(sorted);
+                setIsloading(false);
             }
-            setIsloading(false);
         }, 2000);
     }, [data]);
 
@@ -71,37 +70,37 @@ export default function TopDestinationSection() {
                     <div className="grid grid-cols-3 gap-5 w-full">
                         <div className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
                             <div className="w-full h-[180px] overflow-hidden rounded-lg">
-                            <Skeleton className="w-[350px] h-[180px] rounded-xl" />
+                                <Skeleton className="w-[350px] h-[180px] rounded-xl" />
                             </div>
                             <Skeleton className="w-[200px] h-[32px]" />
                         </div>
                         <div className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
                             <div className="w-full h-[180px] overflow-hidden rounded-lg">
-                            <Skeleton className="w-[350px] h-[180px] rounded-xl" />
+                                <Skeleton className="w-[350px] h-[180px] rounded-xl" />
                             </div>
                             <Skeleton className="w-[200px] h-[32px]" />
                         </div>
                         <div className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
                             <div className="w-full h-[180px] overflow-hidden rounded-lg">
-                            <Skeleton className="w-[350px] h-[180px] rounded-xl" />
+                                <Skeleton className="w-[350px] h-[180px] rounded-xl" />
                             </div>
                             <Skeleton className="w-[200px] h-[32px]" />
                         </div>
                         <div className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
                             <div className="w-full h-[180px] overflow-hidden rounded-lg">
-                            <Skeleton className="w-[350px] h-[180px] rounded-xl" />
+                                <Skeleton className="w-[350px] h-[180px] rounded-xl" />
                             </div>
                             <Skeleton className="w-[200px] h-[32px]" />
                         </div>
                         <div className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
                             <div className="w-full h-[180px] overflow-hidden rounded-lg">
-                            <Skeleton className="w-[350px] h-[180px] rounded-xl" />
+                                <Skeleton className="w-[350px] h-[180px] rounded-xl" />
                             </div>
                             <Skeleton className="w-[200px] h-[32px]" />
                         </div>
                         <div className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
                             <div className="w-full h-[180px] overflow-hidden rounded-lg">
-                            <Skeleton className="w-[350px] h-[180px] rounded-xl" />
+                                <Skeleton className="w-[350px] h-[180px] rounded-xl" />
                             </div>
                             <Skeleton className="w-[200px] h-[32px]" />
                         </div>
@@ -110,10 +109,10 @@ export default function TopDestinationSection() {
                     <div className="grid grid-cols-3 gap-3 w-full">
                         {sortedData.map((item: Destination) => {
                             return (
-                                <div className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
+                                <div key={item.id} className="flex flex-col items-center justify-between w-[350px] h-[300px] rounded-xl p-5 ">
                                     <div className="w-full h-[180px] overflow-hidden rounded-lg">
                                         <ImageFallback
-                                            src={item.imageUrls[0]}
+                                            src={item.imageUrls[0] || imageDefault}
                                             alt="Destination photo"
                                             fallbackSrc={imageDefault}
                                             width={350}
@@ -121,7 +120,7 @@ export default function TopDestinationSection() {
                                             className="w-full h-full object-cover"
                                         />
                                     </div>
-                                    <Button key={item.id}
+                                    <Button 
                                         className="bg-background text-foreground hover:bg-background text-xl"
                                         onClick={() => handleRedirect(`/destination/${item.id}`)}>
                                         {item.province}

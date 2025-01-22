@@ -6,6 +6,7 @@ import imageBg from '@/public/assets/image-backdrop-1.webp';
 import { MarqueePartnersCard } from "@/sections/PartnersCard";
 import TopDestinationSection from "@/sections/TopDestinationSection";
 import LatestPromo from "@/sections/LatestPromo";
+import LatestBanner from "@/sections/LatestBanner";
 
 
 export default function Home() {
@@ -20,6 +21,8 @@ export default function Home() {
       <TopDestinationSection/>
 
       <LatestPromo/>
+
+      <LatestBanner/>
 
       <Footer/>
     </>

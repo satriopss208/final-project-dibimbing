@@ -1,5 +1,4 @@
 'use client';
-
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import usePromo from "@/hooks/usePromo";
@@ -39,7 +38,9 @@ export default function LatestPromo() {
       <div className="flex flex-col items-center justify-between container max-w-6xl gap-10 mb-10">
         <div className="flex items-center justify-between gap-5 w-full">
           <div className="flex flex-col items-start justify-between">
-            <h1 className="text-3xl font-bold">Special sales for better experience</h1>
+            <div className="flex justify-start w-full">
+            <h1 className="text-3xl font-bold text-start">Special sales for better experience</h1>
+            </div>
             <p className="text-md font-medium text-accent-foreground">
               Here are the latest special offers for you
             </p>
@@ -68,17 +69,17 @@ export default function LatestPromo() {
         <div className="flex flex-col items-center gap-3 border rounded-xl px-20">
           {isLoading ? (
 
-            <div className="flex flex-col items-center justify-between w-full h-[450px] rounded-xl p-5">
+            <div className="flex flex-col justify-between w-full h-[450px] rounded-xl p-5">
               <div className="w-full h-[300px] overflow-hidden rounded-lg">
                 <Skeleton className="w-full h-full rounded-lg" />
               </div>
-              <Skeleton className="w-[600px] h-[32px] rounded-md" />
+              <Skeleton className="w-[200px] h-[32px] rounded-md" />
               <Skeleton className="w-[600px] h-[24px] rounded-md" />
             </div>
           ) : data && data.length > 0 ? (
 
             <Link href={`/promo/${data[currentIndex].id}`}>
-              <div className="flex flex-col items-center justify-between w-full h-[450px] rounded-xl p-5">
+              <div className="flex flex-col items-center justify-between w-full h-[450px] rounded-xl p-5 gap-5">
                 <div className="w-full h-[300px] overflow-hidden rounded-lg">
                   <ImageFallback
                     src={data[currentIndex].imageUrl || imageDefault}
@@ -89,13 +90,13 @@ export default function LatestPromo() {
                     className="object-cover w-full h-full"
                   />
                 </div>
-                <Button
-                  className="bg-background text-foreground hover:bg-background text-xl w-[600px]"
+                <h1
+                  className="bg-background text-foreground hover:bg-background text-xl font-semibold w-full"
                 >
                   {data[currentIndex].title}
-                </Button>
-                <p className="text-foreground text-md w-[600px] text-center">
-                  {data[currentIndex].description}
+                </h1>
+                <p className="text-foreground text-md w-[600px]">
+                {data[currentIndex].description.length > 75 ? `${data[currentIndex].description.substring(0, 75)} ...` : data[currentIndex].description}
                 </p>
               </div>
             </Link>

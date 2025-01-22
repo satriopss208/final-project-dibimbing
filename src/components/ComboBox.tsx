@@ -9,7 +9,6 @@ import {
   Command,
   CommandEmpty,
   CommandGroup,
-  CommandInput,
   CommandItem,
   CommandList,
 } from "@/components/ui/command"
@@ -30,9 +29,26 @@ const frameworks = [
   },
 ]
 
-export function ComboBox() {
+interface ComboBoxProps {
+  name: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export function ComboBox({ name, onChange }: ComboBoxProps) {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
+
+  const handleSelect = (currentValue: string) => {
+    setValue(currentValue === value ? "" : currentValue)
+    setOpen(false)
+    const event = {
+      target: {
+        name,
+        value: currentValue === value ? "" : currentValue
+      }
+    } as React.ChangeEvent<HTMLInputElement>
+    onChange(event)
+  }
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -45,23 +61,20 @@ export function ComboBox() {
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
-            : "Select framework..."}
+            : "Select role..."}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
           <CommandList>
-            <CommandEmpty>No framework found.</CommandEmpty>
+            <CommandEmpty>No role found.</CommandEmpty>
             <CommandGroup>
               {frameworks.map((framework) => (
                 <CommandItem
                   key={framework.value}
                   value={framework.value}
-                  onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue)
-                    setOpen(false)
-                  }}
+                  onSelect={handleSelect}
                 >
                   {framework.label}
                   <Check

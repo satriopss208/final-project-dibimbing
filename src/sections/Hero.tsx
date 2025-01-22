@@ -16,7 +16,6 @@ const Hero: React.FC<HeroProps> = ({ backdrop, title }) => {
         <Image
           src={backdrop}
           alt="background"
-          objectFit="cover"
           layout="fill"
           quality={100}
           className="object-cover"

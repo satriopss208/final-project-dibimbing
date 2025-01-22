@@ -16,7 +16,7 @@ export default function TopDestinationSection() {
     const topLimit = 6;
     useEffect(() => {
 
-        setTimeout(() => {
+    
             if (data) {
                 const sorted = [...data]
                     .sort((a, b) => b.total_reviews - a.total_reviews)
@@ -24,7 +24,7 @@ export default function TopDestinationSection() {
                 setSortedData(sorted);
                 setIsloading(false);
             }
-        }, 2000);
+        
     }, [data]);
 
 

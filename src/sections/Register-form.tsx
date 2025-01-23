@@ -39,7 +39,7 @@ export function RegisterForm({
     event.preventDefault();
     try {
       await register(formData);
-      alert('Registration successful!');
+      alert(success);
       setTimeout(() => {
         router.push('/login');
       }, 2000);

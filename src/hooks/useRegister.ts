@@ -1,5 +1,5 @@
+'use client';
 import { useState } from 'react';
-import axios from 'axios';
 import { Register } from '@/hooks/registerInterface';
 import { handleRegister } from '@/services/register';
 
@@ -7,21 +7,21 @@ import { handleRegister } from '@/services/register';
 export default function useRegister() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState('');
 
   const register = async (data: Register) => {
     setLoading(true);
     setError(null);
-    setSuccess(false);
+    setSuccess('');
 
     try {
       const response = await handleRegister(data);
-
-      if (response.status === 201) {
-        setSuccess(true);
+      console.log(response);
+      if (response.status === 200) {
+        setSuccess(response.data?.message);
         console.log(`Registration successful: ${response.data}`);
       } else {
-        setError('Registration failed. Please try again.');
+        setError(response.data?.message);
       }
     } catch (err) {
       setError('An error occurred. Please try again.');
